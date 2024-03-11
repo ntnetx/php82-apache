@@ -1,0 +1,17 @@
+version: '3'
+services:
+  webserver:
+    build: .
+    container_name: php82
+    volumes:
+      - ./www:/var/www/html
+      - ./www/php.ini:/usr/local/etc/php/php.ini
+    ports:
+      - "8080:80"
+    environment:
+      - PHP_ERROR_REPORTING=E_ALL
+    networks:
+      - site
+
+networks:
+  site:
